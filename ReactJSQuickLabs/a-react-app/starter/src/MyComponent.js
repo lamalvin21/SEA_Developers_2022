@@ -9,7 +9,6 @@ const MyComponent = () => {
     <h1>Hello World</h1>
     <MyClassComponent/>
     </>
-    
   )
 }
 
