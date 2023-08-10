@@ -5,7 +5,7 @@ import TodoModel from './utils/Todo.model'
 import propTypes from 'prop-types'
 
 const AllTodos = ({data}) => {
-    const todos = data.todos.map((currentTodo) => {
+    const todos = data.todos.map(currentTodo => {
         const todo = new TodoModel(currentTodo.todoDescription, currentTodo.todoDateCreated, currentTodo.todoCompleted, currentTodo._id);
         return <Todo todo={todo} key={todo._id}  />
     })
@@ -31,9 +31,9 @@ const AllTodos = ({data}) => {
 AllTodos.propTypes = {
     data: propTypes.exact({
         todos: propTypes.arrayOf(propTypes.exact({
-            todoDescription: propTypes.string.isRequired,
-            todoDateCreated: propTypes.string.isRequired,
-            todoCompleted: propTypes.bool.isRequired,
+            todoDescription: propTypes.string,
+            todoDateCreated: propTypes.string,
+            todoCompleted: propTypes.bool,
             _id: propTypes.string
         }))
         }
