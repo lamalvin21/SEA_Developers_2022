@@ -8,13 +8,17 @@ import Header from './Components/Header';
 import Footer from './Components/Footer';
 import AllTodos from './Components/AllTodos';
 import AddEditTodo from './Components/AddEditTodo';
+import { useState } from 'react';
+import sampleTodos from './sampleTodos.json';
 
 function App() {
+  const [todos, setTodos] = useState(sampleTodos);
+
   return (
     <div className="container">
         <Header/>
         <div className='container'>
-          <AllTodos/>
+          <AllTodos data={{todos}}/>
           <AddEditTodo/>
         </div>
         <Footer/>
