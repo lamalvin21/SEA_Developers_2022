@@ -8,13 +8,13 @@ const TodoForm = props => {
     const [todoDateCreated, setTodoDateCreated] = useState(null);
     const [todoCompleted, setTodoCompleted] = useState(false);
 
-    const handleSubmit = event => {
+    const handleSubmit = (event) => {
         event.preventDefault();
         props.submitTodo(todoDescription, todoDateCreated, todoCompleted);
         setTodoDescription('');
         setTodoDateCreated(null);
         setTodoCompleted(false);
-    };
+    }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -38,7 +38,7 @@ const TodoForm = props => {
 }
 
 TodoForm.propTypes = {
-    submitTodo: propTypes.func
+    submitTodo: propTypes.func.isRequired
 }
 
 export default TodoForm
