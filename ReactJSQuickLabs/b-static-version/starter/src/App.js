@@ -12,6 +12,7 @@ import { useState, useEffect } from 'react';
 // import sampleTodos from './sampleTodos.json';
 import axios from 'axios';
 import Modal from './Components/utils/Modal';
+import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
 
 const TODOSURL = 'http://localhost:4000/todos';
 
@@ -53,18 +54,18 @@ function App() {
   };
 
   return (
-    <>
+    <BrowserRouter>
       {getError && <Modal handleClose={()=>setError("")} message={getError}/>}
       {postError && <Modal handleClose={()=>setPostError(false)} show={postError}/>}
       <div className="container">
         <Header/>
-        <div className='container'>
-          <AllTodos data={todos}/>
-          <AddEditTodo submitTodo={submitTodoInApp}/>
-        </div>
+        <Routes>
+          <Route exact path="/" element={<AllTodos data={todos}/>}/>
+          <Route exact path="/add" element={<AddEditTodo submitTodo={submitTodoInApp}/>}/>
+        </Routes>
         <Footer/>
       </div>
-    </>
+    </BrowserRouter>
   );
 }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import logoImage from './images/qalogo.svg'
+import {Link, NavLink} from 'react-router-dom'
 
 function Header() {
   return (
@@ -13,9 +14,19 @@ function Header() {
                         className="d-inline-block align-top"
                     />
                 </a>
-                <a href="/" className="navbar-brand">
+                <Link to="/" className="navbar-brand">
                     <h1>Todo App</h1>
-                </a>
+                </Link>
+                <div className='collapse navbar-collapse'>
+                    <ul className='navbar-nav mr-auto'>
+                        <li className='navbar-item'>
+                            <NavLink to="/" exact className="nav-link active">All Todos</NavLink>
+                        </li>
+                        <li className='navbar-item'>
+                            <NavLink to="/add" exact className="nav-link active">Add Todo</NavLink>
+                        </li>
+                    </ul>
+                </div>
             </nav>
         </header>
     )
